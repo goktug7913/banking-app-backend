@@ -1,0 +1,15 @@
+Setup process:
+
+This is the backend repository, first clone the repository or download the zip file.
+
+You need to create a .env file in the root directory of the project, use the dotenv_template as a reference.
+The provided database name should be created beforehand, and the user should have all the privileges on the database.
+The backend will create the required collections if they don't exist.
+
+Run the following commands to install the dependencies and start the server:
+npm install
+npm start
+
+The server will start on port 3000.
+
+Now you can move to the frontend repository and follow the instructions there.
