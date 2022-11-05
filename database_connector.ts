@@ -6,6 +6,8 @@ dotenv.config();
 const uri:string = process.env.DB_URI as string;
 const dbName:string = process.env.DB_NAME as string;
 
+// TODO: Replace the mongodb driver implementation with mongoose
+
 export class DatabaseConnector {
   private static client: MongoClient;
 
