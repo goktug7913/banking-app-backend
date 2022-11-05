@@ -1,0 +1,20 @@
+{
+  "name": "banking-app-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "compilerOptions": {
+    "esModuleInterop": true
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^4.11.0",
+    "ts-node": "^10.9.1"
+  }
+}

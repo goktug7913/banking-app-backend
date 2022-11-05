@@ -1,0 +1,4 @@
+# MongoDB Connection String
+DB_URI = "..."
+# Database Name
+DB_NAME = "bank_db"
