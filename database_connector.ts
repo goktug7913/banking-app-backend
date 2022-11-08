@@ -55,4 +55,24 @@ export class DatabaseConnector {
     }
     console.log("Done checking collections!");
   }
+
+  getDatabase() {
+    return DatabaseConnector.client.db(dbName);
+  }
+
+  getMasterAccountModel() {
+    return this.getDatabase().collection('master_accounts');
+  }
+
+    getFiatAccountModel() {
+    return this.getDatabase().collection('fiat_accounts');
+  }
+
+    getCryptoAccountModel() {
+    return this.getDatabase().collection('crypto_accounts');
+  }
+
+    getTransactionModel() {
+    return this.getDatabase().collection('transactions');
+  }
 }

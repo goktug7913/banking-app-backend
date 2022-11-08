@@ -1,4 +1,8 @@
 # MongoDB Connection String
 DB_URI = "..."
-# Database Name
+
+# MongoDB Database Name
 DB_NAME = "bank_db"
+
+# Backend Config
+PORT = 3001

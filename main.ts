@@ -4,6 +4,7 @@ import {DatabaseConnector} from './database_connector';
 import {masterAccountSchema, fiatAccountSchema, cryptoAccountSchema, transactionSchema} from './schemas';
 import * as dotenv from 'dotenv'
 import { NextFunction, Request, Response } from 'express';
+import {DatabaseOperations} from "./database_operations";
 const cors = require('cors');
 const express = require('express');
 
@@ -40,26 +41,21 @@ const app = express();
 app.use(cors());
 
 // Create the master account route
-app.get('/master_account', (req: Request, res: Response) => {
-    res.send('Hello World!');
+app.get('/test/allAccounts', (req: Request, res: Response) => {
+    console.log("Received request for all master accounts");
+    dbOps.test_getAllMasterAccounts().then((masterAccounts) => {
+        res.send(masterAccounts);
+    });
 });
 
-// Create the fiat account route
-app.get('/fiat_account', (req: Request, res: Response) => {
-    res.send('Hello World!');
-});
-
-// Create the crypto account route
-app.get('/crypto_account', (req: Request, res: Response) => {
-    res.send('Hello World!');
-});
-
-// Create the transaction route
-app.get('/transaction', (req: Request, res: Response) => {
-    res.send('Hello World!');
+app.post('/test/createMasterAccount', (req: Request, res: Response) => {
+    console.log("Received request to create a master account");
 });
 
 // Start the express app
 app.listen(port, () => {
     console.log(`listening at http://localhost:${port}`);
 });
+
+let dbOps = new DatabaseOperations();
+console.log("dbOps: ", dbOps);
