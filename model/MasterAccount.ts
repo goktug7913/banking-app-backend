@@ -3,11 +3,13 @@ const Schema = mongoose.Schema;
 
 // Define the master account schema
 const masterAccountSchema = new Schema({
-    // The master account ID
+    // The master account ID, which is the same as the user ID
     account_id: {
         type: String,
         required: true,
         unique: true,
+        minlength: 11,
+        maxlength: 11
     },
     password: {
         type: String,
@@ -26,7 +28,7 @@ const masterAccountSchema = new Schema({
         required: true,
         maxlength: 64,
     },
-    // The master account email
+    // The master account email, can be used to log in as well
     email: {
         type: String,
         required: true,
@@ -49,4 +51,4 @@ const masterAccountSchema = new Schema({
     },
 });
 
-export { masterAccountSchema };
+module.exports = mongoose.model("MasterAccount", masterAccountSchema);

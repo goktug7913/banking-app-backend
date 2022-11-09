@@ -1,27 +1,27 @@
 import * as mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-// Define the crypto account schema
-const cryptoAccountSchema = new mongoose.Schema({
-    // The crypto account ID
+// Define the fiat account schema
+const fiatAccountSchema = new mongoose.Schema({
+    // The fiat account ID
     account_id: {
         type: String,
         required: true,
         unique: true,
     },
-    // The crypto account name
+    // The fiat account name
     name: {
         type: String,
         required: true,
         maxlength: 64,
     },
-    // The crypto account currency
+    // The fiat account currency
     currency: {
         type: String,
         required: true,
-        maxlength: 4,
+        maxlength: 3,
     },
-    // The crypto account balance
+    // The fiat account balance
     balance: {
         type: Number,
         required: true,
@@ -35,4 +35,4 @@ const cryptoAccountSchema = new mongoose.Schema({
     },
 });
 
-export { cryptoAccountSchema };
+module.exports = mongoose.model("FiatAccount", fiatAccountSchema);

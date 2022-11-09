@@ -10,6 +10,8 @@ Run the following commands to install the dependencies and start the server:
 npm install
 npm start
 
-The server will start on port 3000.
+The server will start on port 3001 by default, if no port specified in the env file.
 
 Now you can move to the frontend repository and follow the instructions there.
+
+You can use "npm run dev" to start the server in development mode, which will restart the server on every change.

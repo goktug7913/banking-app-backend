@@ -2,7 +2,7 @@ import * as mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 // Define the transaction schema
-const transactionSchema = new mongoose.Schema({
+const transactionSchema = new Schema({
     // The transaction ID
     transaction_id: {
         type: String,
@@ -51,4 +51,4 @@ const transactionSchema = new mongoose.Schema({
     },
 });
 
-export { transactionSchema };
+module.exports = mongoose.model("Transaction", transactionSchema);
