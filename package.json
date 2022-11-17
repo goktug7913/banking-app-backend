@@ -21,6 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.1",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.6.0",
     "ts-node": "^10.9.1"
   },
   "devDependencies": {

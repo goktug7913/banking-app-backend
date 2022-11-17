@@ -6,8 +6,10 @@ const cryptoAccountSchema = new Schema({
     // The crypto account ID
     account_id: {
         type: String,
-        required: true,
-        unique: true,
+        required: false,
+        unique: false,
+        // Generate a random 11 digit number
+        default: Math.floor(10000000000 + Math.random() * 90000000000)
     },
     // The crypto account name
     name: {
@@ -24,7 +26,7 @@ const cryptoAccountSchema = new Schema({
     // The crypto account balance
     balance: {
         type: Number,
-        required: true,
+        required: false,
         default: 0,
     },
     // The fiat account transactions

@@ -49,6 +49,10 @@ const masterAccountSchema = new Schema({
         type: Array,
         required: false,
     },
-});
+    token: {
+        type: String,
+        required: false,
+    },
+}, {timestamps: true}); // This adds the createdAt and updatedAt fields
 
 module.exports = mongoose.model("MasterAccount", masterAccountSchema);

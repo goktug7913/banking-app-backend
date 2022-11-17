@@ -7,6 +7,7 @@ import { NextFunction, Request, Response } from 'express';
 const handleLogin = async (req: { body: any; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: string): void; new(): any; }; }; }) => {
     // Get the master account data
     const masterAccountData = req.body;
+    console.log("Logging in: " + masterAccountData);
     // Check if the account exists in the database
     const masterAccountExists = await masterAccount.exists({account_id: masterAccountData.account_id});
     // If the master account exists, send a success message
@@ -14,7 +15,9 @@ const handleLogin = async (req: { body: any; }, res: { status: (arg0: number) =>
         // Check if the password is correct
         const masterAccountPassword = await masterAccount.findOne({account_id: masterAccountData.account_id});
         if (masterAccountPassword.password == masterAccountData.password) {
-            res.status(200).send("Login successful!");
+            // Let's get the account data
+            const account = await masterAccount.findOne({account_id: masterAccountData.account_id});
+            res.status(200).send(account);
         }
         else {
             res.status(400).send("Incorrect password!");

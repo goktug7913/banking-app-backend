@@ -29,8 +29,6 @@ app.use(express.json());
 // Set and use the cors library
 app.use(cors());
 
-// check if we're connected to the database
-
 // Set routes
 app.use('/register', require('./routes/api/register'));
 app.use('/login', require('./routes/api/login'));
