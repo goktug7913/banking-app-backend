@@ -6,11 +6,13 @@ const transactionSchema = new Schema({
     // The transaction ID
     transaction_id: {
         type: String,
-        required: true,
         unique: true,
+        // TODO: Generate unique transaction ID
+        default: Math.floor(10000000000 + Math.random() * 90000000000)
     },
     // The transaction type
     type: {
+        // This could be enum, but I'm not sure how to do that in TS
         type: String,
         required: true,
         maxlength: 64,
