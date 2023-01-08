@@ -1,5 +1,4 @@
 const masterAccount = require('../model/MasterAccount');
-import { NextFunction, Request, Response } from 'express';
 
 // TODO: If reverting to reduce nesting, password hashing implementation
 
@@ -7,7 +6,7 @@ import { NextFunction, Request, Response } from 'express';
 const handleLogin = async (req: { body: any; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: string): void; new(): any; }; }; }) => {
     // Get the master account data
     const masterAccountData = req.body;
-    console.log("Logging in: " + masterAccountData);
+    console.log("Login attempt by ID: " + masterAccountData.account_id + " and password: " + masterAccountData.password);
     // Check if the account exists in the database
     const masterAccountExists = await masterAccount.exists({account_id: masterAccountData.account_id});
     // If the master account exists, send a success message
@@ -17,6 +16,7 @@ const handleLogin = async (req: { body: any; }, res: { status: (arg0: number) =>
         if (masterAccountPassword.password == masterAccountData.password) {
             // Let's get the account data
             const account = await masterAccount.findOne({account_id: masterAccountData.account_id});
+            console.log("Login successful, sending account data: " + account);
             res.status(200).send(account);
         }
         else {

@@ -1,5 +1,6 @@
 const masterAccount = require('../model/MasterAccount');
-import { NextFunction, Request, Response } from 'express';
+
+export {} // Fix for "Cannot redeclare block-scoped variable" error
 
 // TODO: Password hashing implementation
 

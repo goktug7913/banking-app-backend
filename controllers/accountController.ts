@@ -1,9 +1,10 @@
 const masterAccount = require('../model/MasterAccount');
 const cryptoAccount = require('../model/CryptoAccount');
-import { NextFunction, Request, Response } from 'express';
 
 // TODO: If reverting to reduce nesting, password hashing implementation
 // TODO: When deleting fiat and crypto accounts, check if the account has no balance and delete the associated transactions too.
+
+export {} // To fix the error: Cannot redeclare block-scoped variable 'masterAccount'.
 
 // Returns the account data for the given account ID
 const handleGetAccount = async (req: { body: any; }, res: { status: (arg0: number) => { (): any; new(): any; send: { (arg0: string): void; new(): any; }; }; }) => {
@@ -234,8 +235,7 @@ const handleDeleteMasterAccount = async (req: { body: any; }, res: { status: (ar
 
     // If the account exists, delete it
     if (accountExists) {
-        const account = await masterAccount.deleteOne(accountData);
-
+        await masterAccount.deleteOne(accountData);
         // Send success message
         res.status(200).send("Account deleted.");
     }
@@ -265,3 +265,5 @@ module.exports = {
     testGetAllAccounts,
     getIdFromToken,
 }
+
+

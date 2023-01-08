@@ -14,10 +14,6 @@ export class DatabaseConnector {
     
   }
 
-  async disconnect() {
-    await mongoose.disconnect();
-  }
-
   async retrieveCollections() {
     return mongoose.connection.collections;
   }
