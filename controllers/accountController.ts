@@ -109,6 +109,7 @@ const handleCreateFiatAccount = async (req: { body: any; }, res: { status: (arg0
         else {
             // The fiat account does not exist, so create it
             const account = await masterAccount.createFiatAccount(accountData, req.body.fiatAccountID);
+            console.log("Fiat account created: " + req.body.fiatAccountID);
             // Send the account data
             res.status(200).send(account);
         }
